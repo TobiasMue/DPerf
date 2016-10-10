@@ -5,12 +5,28 @@
  * with all parameters set. In current project only Init-Constructor for one-time settup is being used
  * "inbound", all "Get" functions, linked by the simple name of the parameter is being used "outbound"
  */
+ 
+/*
+struct TClimbDataPoint{
+    unsigned dKIAS;
+    double dTRQ;
+		double dTime;
+		double dDist;
+		double dFuel;	
+}
+*/ 
 
+/*Würde dann TClimbFLData heissen*/
 class TClimbDataPoint{
 private:
+/*
+	unsigned dFL;
+	TClimbDataPoint dClimbDataPoint;
+*/
     unsigned dFL, dKIAS;
     double dTRQ, dTime, dDist, dFuel;
 
+	/*Können weg, werden ja nie geändert*/
     //Private Setter
     void SetFL(unsigned fl){
         dFL = fl;};
@@ -40,7 +56,7 @@ private:
         return dFuel;};
 
 public:
-
+	/*Können auch weg*/
     //Public Setter
     void FL(unsigned fl){
         SetFL(fl);};
@@ -55,6 +71,7 @@ public:
     void Fuel(double fuel){
         SetFuel(fuel);};
 
+		/*Gäbe nur noch FL und ClimbDataPoint*/
     //Public Getter
     unsigned FL(){
         return GetFL();};
@@ -74,6 +91,7 @@ public:
 
     //Init Constructor
     TClimbDataPoint(unsigned fl, unsigned kias, double trq, double time, double dist, double fuel){
+		/*dClimbDataPoint.kias = kias; ...*/
         dFL = fl;
         dKIAS = kias;
         dTRQ = trq;
