@@ -37,10 +37,6 @@ HEADERS  += mainwindow.h \
     Cruise/CruiseISADev.h \
     Cruise/CruiseMass.h \
     Cruise/CruiseType.h \
-    Data/Climbdata.dat \
-    Data/Acceldata.dat \
-    Data/Cruisedata.dat \
-    Data/Descentdata.dat \
     Descent/Descent.h \
     Descent/DescentDataPoint.h \
     Descent/DescentISADev.h \
@@ -53,3 +49,10 @@ HEADERS  += mainwindow.h \
     Misc/Wind.h
 
 FORMS    += mainwindow.ui
+
+DISTFILES += \
+    Data/Climbdata.dat \
+    Data/Acceldata.dat \
+    Data/Cruisedata.dat \
+    Data/Descentdata.dat
+
