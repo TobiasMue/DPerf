@@ -164,7 +164,8 @@ class TDescentTypeData
    bool IsValid(signed isadev, unsigned mass, unsigned fl){
    	if (!(IsValid(isadev))) return false;
   (dDescentData.at(GetDescentDataIndex(LowerISADev(isadev))).IsValid(mass, fl) && dDescentData.at(GetDescentDataIndex(UpperISADev(isadev))).IsValid(mass, fl));
-	};
+/*FIXME*/    return (0);
+   };
 		
 	//Einzelne Werte zurückgeben
     unsigned KIAS(signed isadev, unsigned mass, unsigned fl){
