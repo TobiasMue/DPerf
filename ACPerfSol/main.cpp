@@ -14,21 +14,22 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    w.show();
+//    w.show();
 
     // try to load data for testing
+    //std::cout << argv[0] << std::endl;
 
     TClimbDataSet ClimbData(1);
-    ClimbData.LoadData("/Data/Climbdata.dat", ';', '\n');
+    ClimbData.LoadData("../../../../myACPerfSol/ACPerfSol/Data/Climbdata.dat", ';', '\n');
     std::cout << "Climb Loaded..." << std::endl;
     TAccelDataSet AccelData(1);
-    AccelData.LoadData("/Data/Acceldata.dat", ';', '\n');
+    AccelData.LoadData("../../../../myACPerfSol/ACPerfSol/Data/Acceldata.dat", ';', '\n');
     std::cout << "Accel Loaded..." << std::endl;
     TCruiseDataSet CruiseData(1);
-    CruiseData.LoadData("/Data/Cruisedata.dat", ';', '\n');
+    CruiseData.LoadData("../../../../myACPerfSol/ACPerfSol/Data/Cruisedata.dat", ';', '\n');
     std::cout << "Cruise Loaded..." << std::endl;
     TDescentDataSet DescentData(1);
-    DescentData.LoadData("/Data/Descentdata.dat", ';', '\n');
+    DescentData.LoadData("../../../../myACPerfSol/ACPerfSol/Data/Descentdata.dat", ';', '\n');
     std::cout << "Descent Loaded..." << std::endl;
 
     return a.exec();
