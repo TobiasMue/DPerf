@@ -7,6 +7,11 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4){
+CONFIG += c++11
+} else {
+QMAKE_CXXFLAGS += -std=c++0x
+}
 
 TARGET = ACPerfSol
 TEMPLATE = app
