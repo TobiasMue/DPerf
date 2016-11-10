@@ -9,11 +9,14 @@
  * Outer Shell containing all ClimbData.
  */
 class TClimbDataSet{
-	int dSource;
-    std::vector < TClimbRPMData > dClimbData;
 
 	private:
-		int GetSource(){
+		//Content
+		unsigned dSource;
+    std::vector < TClimbRPMData > dClimbData;
+		
+		//Get Source
+		unsigned  GetSource(){
 			return dSource;
 		};
 		
@@ -34,17 +37,17 @@ class TClimbDataSet{
 		};
 	
 		//Index des Datepunktes mit RPM zurückgeben
-        unsigned GetClimbDataIndex(unsigned rpm){
-            unsigned i;
-            for (i = 0; i < dClimbData.size(); i++){
-                if (dClimbData.at(i).RPM() == rpm) break;
+    unsigned GetClimbDataIndex(unsigned rpm){
+			unsigned i;
+			for (i = 0; i < dClimbData.size(); i++){
+				if (dClimbData.at(i).RPM() == rpm) break;
 			}
 			return i;
 		};
 
 		// Check ob Datenpunkt für RPM existiert
-        bool CheckClimbData(unsigned rpm){
-            return (GetClimbDataIndex(rpm) < dClimbData.size());
+		bool CheckClimbData(unsigned rpm){
+      return (GetClimbDataIndex(rpm) < dClimbData.size());
 		};
 			
 		// Datapoint zurückgeben
@@ -54,7 +57,7 @@ class TClimbDataSet{
 		};
 	
 		// sucht die nächst-kleinere RPM in ClimbData und gibt es zurück
-        unsigned LowerRPM(unsigned rpm){
+     unsigned LowerRPM(unsigned rpm){
             unsigned result = MinRPM();
             for (unsigned i = 0; i < dClimbData.size(); i++){
                 if ((dClimbData.at(i).RPM() <= rpm) && (result < dClimbData.at(i).RPM())) result = dClimbData.at(i).RPM();
@@ -101,7 +104,7 @@ class TClimbDataSet{
 			}
 			TClimbDataPoint lower = GetClimbDataPoint(LowerRPM(rpm), climbtype, isadev, mass, fl);
 			TClimbDataPoint upper = GetClimbDataPoint(UpperRPM(rpm), climbtype, isadev, mass, fl);
-            unsigned kias = InterpolateLinear1D(lower.KIAS(), upper.KIAS(), LowerRPM(rpm), UpperRPM(rpm), rpm);
+      unsigned kias = InterpolateLinear1D(lower.KIAS(), upper.KIAS(), LowerRPM(rpm), UpperRPM(rpm), rpm);
 			double trq = InterpolateLinear1D(lower.TRQ(), upper.TRQ(), LowerRPM(rpm), UpperRPM(rpm), rpm);
 			double time = InterpolateLinear1D(lower.Time(), upper.Time(), LowerRPM(rpm), UpperRPM(rpm), rpm);
 			double dist = InterpolateLinear1D(lower.Dist(), upper.Dist(),LowerRPM(rpm), UpperRPM(rpm), rpm);
@@ -166,14 +169,14 @@ class TClimbDataSet{
 		};
 				
 		void LoadData(std::string path, char valsep, char lineend){
-            std::ifstream file;
-            std::string tmp;
+      std::ifstream file;
+      std::string tmp;
 			unsigned rpm;
 			unsigned  climbtype;
 			signed isadev;
-            double aicortime;
-            double aicordist;
-            double aicorfuel;
+      double aicortime;
+      double aicordist;
+      double aicorfuel;
 			unsigned mass;
 			unsigned fl;
 			unsigned kias;
@@ -181,87 +184,100 @@ class TClimbDataSet{
 			double time;
 			double dist;
 			double fuel;
-            file.open(path);
-            if(file){
-            	//Achtung! while(!ile.eof()) ist unzuverlässig, u.u. wird die letzte zeile zweimal geladen und prog bleibt hängen
-                while(std::getline(file, tmp, valsep)){
-                	rpm = std::stoi(tmp);
-                    std::getline(file, tmp, valsep);
-                    climbtype = std::stoi(tmp);
-                    std::getline(file, tmp, valsep);
-                    isadev  = std::stoi(tmp);
-                    std::getline(file,  tmp, valsep);
-                    aicortime  = std::stof(tmp);
-                    std::getline(file,  tmp, valsep);
-                    aicordist = std::stof(tmp);
-                    std::getline(file,  tmp, valsep);
-                    aicorfuel  = std::stof(tmp);
-                    std::getline(file,  tmp, valsep);
-                    mass  = std::stoi(tmp);
-                    std::getline(file,  tmp, valsep);
-                    fl = std::stoi(tmp);
-                    std::getline(file,  tmp, valsep);
-                    kias = std::stoi(tmp);
-                    std::getline(file,  tmp, valsep);
-                    trq  = std::stof(tmp);
-                    std::getline(file,  tmp, valsep);
-                    time   = std::stof(tmp);
-                    std::getline(file,  tmp, valsep);
-                    dist  = std::stof(tmp);
-                    std::getline(file,  tmp, lineend);
-                    fuel = std::stof(tmp);
-                    AddClimbDataPoint(rpm, climbtype, isadev, aicortime, aicordist, aicorfuel, mass, fl, kias, trq, time, dist, fuel);
-                }
-
-            }
-            else std::cout << "File not found." << std::endl;
-            file.close();
-        };
-	
-		//Neuen Datenpunkt hinzufügen
-        void ClimbData(unsigned rpm, unsigned climbtype, signed isadev, double aicortime, double aicordist, double aicorfuel,  unsigned mass, unsigned fl, unsigned kias, double trq, double time, double dist, double fuel){
-            AddClimbDataPoint(rpm, climbtype, isadev, aicortime, aicordist, aicorfuel, mass, fl, kias, trq, time, dist, fuel);
+			file.open(path);
+			if(file){
+				//Achtung! while(!ile.eof()) ist unzuverlässig, u.u. wird die letzte zeile zweimal geladen und prog bleibt hängen
+				while(std::getline(file, tmp, valsep)){
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break; //Variable prüfen, wenn Leer oder "N/A" dann durchlauf abbrechen
+					rpm = std::stoi(tmp);
+					std::getline(file, tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					climbtype = std::stoi(tmp);
+					std::getline(file, tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					isadev  = std::stoi(tmp);
+					std::getline(file,  tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					aicortime  = std::stof(tmp);
+					std::getline(file,  tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					aicordist = std::stof(tmp);
+					std::getline(file,  tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					aicorfuel  = std::stof(tmp);
+					std::getline(file,  tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					mass  = std::stoi(tmp);
+					std::getline(file,  tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					fl = std::stoi(tmp);
+					std::getline(file,  tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					kias = std::stoi(tmp);
+					std::getline(file,  tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					trq  = std::stof(tmp);
+					std::getline(file,  tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					time   = std::stof(tmp);
+					std::getline(file,  tmp, valsep);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					dist  = std::stof(tmp);
+					std::getline(file,  tmp, lineend);
+					if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+					fuel = std::stof(tmp);
+						AddClimbDataPoint(rpm, climbtype, isadev, aicortime, aicordist, aicorfuel, mass, fl, kias, trq, time, dist, fuel);
+				}
+			}
+			else std::cout << "File not found." << std::endl;
+			file.close();
 		};
 	
-        void ClimbData(unsigned rpm, unsigned climbtype, signed isadev, double aicortime, double aicordist, double aicorfuel,  unsigned mass, TClimbDataPoint NewClimbDataPoint){
-            AddClimbDataPoint(rpm, climbtype, isadev, aicortime, aicordist, aicorfuel, mass, NewClimbDataPoint);
+		//Neuen Datenpunkt hinzufügen
+    void ClimbData(unsigned rpm, unsigned climbtype, signed isadev, double aicortime, double aicordist, double aicorfuel,  unsigned mass, unsigned fl, unsigned kias, double trq, double time, double dist, double fuel){
+      AddClimbDataPoint(rpm, climbtype, isadev, aicortime, aicordist, aicorfuel, mass, fl, kias, trq, time, dist, fuel);
+		};
+	
+    void ClimbData(unsigned rpm, unsigned climbtype, signed isadev, double aicortime, double aicordist, double aicorfuel,  unsigned mass, TClimbDataPoint NewClimbDataPoint){
+      AddClimbDataPoint(rpm, climbtype, isadev, aicortime, aicordist, aicorfuel, mass, NewClimbDataPoint);
 		};
 	
 		//Korrekturfaktoren für AntiIce
-        double AICorTime(unsigned rpm, unsigned climbtype, signed isadev){
-            return GetAICorTime(rpm, climbtype, isadev);
+    double AICorTime(unsigned rpm, unsigned climbtype, signed isadev){
+      return GetAICorTime(rpm, climbtype, isadev);
 		};
 	
-        double AICorDist(unsigned rpm, unsigned climbtype, signed isadev){
-            return GetAICorDist(rpm, climbtype, isadev);
+    double AICorDist(unsigned rpm, unsigned climbtype, signed isadev){
+      return GetAICorDist(rpm, climbtype, isadev);
 		};
 	
-        double AICorFuel(unsigned rpm, unsigned climbtype, signed isadev){
-            return GetAICorFuel(rpm, climbtype, isadev);
+    double AICorFuel(unsigned rpm, unsigned climbtype, signed isadev){
+      return GetAICorFuel(rpm, climbtype, isadev);
 		};
 
+		//Umbenennen in DataPoint?
 		TClimbDataPoint ClimbData (unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
 			return GetClimbDataPoint(rpm, climbtype, isadev, mass, fl);
 		};
 		
-		//Einzelne Werte zurückgeben
-        unsigned KIAS(unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
+		//Einzelne Werte zurückgeben (könnte man eigentlich in allen Schichten löschen und anstatt mit MyClbData.time(a,b,c) mit MyClbData.ClimbData(a.b.c).time() machen.
+    unsigned KIAS(unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
 			return GetClimbDataPoint(rpm, climbtype, isadev, mass, fl).KIAS();
 		};
 
-        double TRQ(unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
+    double TRQ(unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
 			return GetClimbDataPoint(rpm, climbtype, isadev, mass, fl).TRQ();
 		};
 	
-        double Time(unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
+    double Time(unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
 			return GetClimbDataPoint(rpm, climbtype, isadev, mass, fl).Time();
 		};
 
-        double Dist(unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
+    double Dist(unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
 			return GetClimbDataPoint(rpm, climbtype, isadev, mass, fl).Dist();
 		};
 
-        double Fuel(unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
+    double Fuel(unsigned rpm, unsigned climbtype, signed isadev, unsigned mass, unsigned fl){
 			return GetClimbDataPoint(rpm, climbtype, isadev, mass, fl).Fuel();
 		};
 };
