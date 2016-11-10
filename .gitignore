@@ -1,4 +1,5 @@
 $ git status
 # Untracked files:
-data/*.dat
+ACPerfSol/data/*.dat
 *.DS_Store
+ACPerfSol/ACPerfSol.pro.user
