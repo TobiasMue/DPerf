@@ -46,7 +46,8 @@ HEADERS  += mainwindow.h \
     Misc/Interpol.h \
     Misc/ISA.h \
     Misc/RouteFunctions.h \
-    Misc/Wind.h
+    Misc/Wind.h \
+    localinit.h
 
 FORMS    += mainwindow.ui
 
