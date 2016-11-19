@@ -3,3 +3,4 @@ $ git status
 ACPerfSol/data/*.dat
 *.DS_Store
 ACPerfSol/ACPerfSol.pro.user
+ACPerfSol/localinit.h

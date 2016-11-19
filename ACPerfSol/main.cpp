@@ -9,6 +9,7 @@
 #include "Misc/RouteFunctions.h"
 #include "Misc/Wind.h"
 #include "Misc/ISA.h"
+#include <localinit.h>
 
 int main(int argc, char *argv[])
 {
@@ -20,16 +21,16 @@ int main(int argc, char *argv[])
     //std::cout << argv[0] << std::endl;
 
     TClimbDataSet ClimbData(1);
-    ClimbData.LoadData("../../../../myACPerfSol/ACPerfSol/Data/Climbdata.dat", ';', '\n');
+    ClimbData.LoadData(CLIMBDATAPATH, ';', '\n');
     std::cout << "Climb Loaded..." << std::endl;
     TAccelDataSet AccelData(1);
-    AccelData.LoadData("../../../../myACPerfSol/ACPerfSol/Data/Acceldata.dat", ';', '\n');
+    AccelData.LoadData(ACCELDATAPATH, ';', '\n');
     std::cout << "Accel Loaded..." << std::endl;
     TCruiseDataSet CruiseData(1);
-    CruiseData.LoadData("../../../../myACPerfSol/ACPerfSol/Data/Cruisedata.dat", ';', '\n');
+    CruiseData.LoadData(CRUISEDATAPATH, ';', '\n');
     std::cout << "Cruise Loaded..." << std::endl;
     TDescentDataSet DescentData(1);
-    DescentData.LoadData("../../../../myACPerfSol/ACPerfSol/Data/Descentdata.dat", ';', '\n');
+    DescentData.LoadData(DESCENTDATAPATH, ';', '\n');
     std::cout << "Descent Loaded..." << std::endl;
 
     return a.exec();
