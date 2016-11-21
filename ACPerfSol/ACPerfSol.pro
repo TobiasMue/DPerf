@@ -18,7 +18,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    Plot/qcustomplot.cpp
 
 HEADERS  += mainwindow.h \
     Accel/Accel.h \
@@ -47,7 +48,8 @@ HEADERS  += mainwindow.h \
     Misc/ISA.h \
     Misc/RouteFunctions.h \
     Misc/Wind.h \
-    localinit.h
+    localinit.h \
+    Plot/qcustomplot.h
 
 FORMS    += mainwindow.ui
 
