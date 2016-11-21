@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-//    w.show();
+    w.show();
 
     // try to load data for testing
     //std::cout << argv[0] << std::endl;
