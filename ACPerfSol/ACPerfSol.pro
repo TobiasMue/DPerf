@@ -19,7 +19,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    Plot/qcustomplot.cpp
+    Plot/qcustomplot.cpp \
+    Plot/plotexamples.cpp
 
 HEADERS  += mainwindow.h \
     Accel/Accel.h \
