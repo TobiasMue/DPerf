@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 greaterThan(QT_MAJOR_VERSION, 4){
 CONFIG += c++11
 } else {
@@ -18,7 +18,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    Plot/qcustomplot.cpp \
+    Plot/plotexamples.cpp
 
 HEADERS  += mainwindow.h \
     Accel/Accel.h \
@@ -47,7 +49,8 @@ HEADERS  += mainwindow.h \
     Misc/ISA.h \
     Misc/RouteFunctions.h \
     Misc/Wind.h \
-    localinit.h
+    localinit.h \
+    Plot/qcustomplot.h
 
 FORMS    += mainwindow.ui
 
