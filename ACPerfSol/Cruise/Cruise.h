@@ -121,43 +121,32 @@ class TCruiseDataSet{
                 while(std::getline(file, tmp, valsep)){
                     cruisetype = std::stoi(tmp);
 					std::getline(file, tmp, valsep);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break; //Variable prüfen, wenn Leer oder "N/A" dann durchlauf abbrechen
 					isadev = std::stoi(tmp);
                     std::getline(file, tmp, valsep);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
 					aicortrq = std::stof(tmp);
                     std::getline(file, tmp, valsep);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
 					aicorff = stof(tmp);
                     std::getline(file, tmp, valsep);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
 					mass = stoi(tmp);
                     std::getline(file, tmp, valsep);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
 					fl = stoi(tmp);
                     std::getline(file, tmp, valsep);
-                    if(tmp == "N/A"){
-						std::getline(file, tmp, lineend);		//Bis linend weiterlesendamit nächstezeile geladen wird
-						continue;
-					}
-					else{
-						 kias = stoi(tmp);
-					}
-					
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    kias = stoi(tmp);
                     std::getline(file, tmp, valsep);
-                    if(tmp  == "N/A") {
-						std::getline(file, tmp, lineend);		//Bis linend weiterlesendamit nächstezeile geladen wird
-						continue;
-					}
-					else trq = stof(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    trq = stof(tmp);
                 	std::getline(file, tmp, valsep);
-                	if(tmp == "N/A"){
-						std::getline(file, tmp, lineend);		//Bis linend weiterlesendamit nächstezeile geladen wird
-						continue;
-					}
-					else ktas = stoi(tmp);
-	   		     std::getline(file, tmp, lineend);
- 	               if(tmp  == "N/A"){
-						std::getline(file, tmp, lineend);		//Bis linend weiterlesendamit nächstezeile geladen wird
-						continue;
-					}
-					else ff = stof(tmp);
-										
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    ktas = stoi(tmp);
+                    std::getline(file, tmp, lineend);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    ff = stof(tmp);
 					AddCruiseDataPoint(cruisetype, isadev, aicortrq, aicorff, mass, fl, kias, trq, ktas, ff);
                 }
             }

@@ -154,18 +154,25 @@ class TAccelDataSet{
             if(file){
             	//Achtung: while(!(file.eof()) schmiert ab!
                 while(std::getline(file, tmp, valsep)){
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break; //Variable prüfen, wenn Leer oder "N/A" dann durchlauf abbrechen
                 	rpm = std::stoi(tmp);
                     std::getline(file, tmp, valsep);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
                     climbtype = std::stoi(tmp);
                     std::getline(file, tmp, valsep);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
                     toc = std::stoi(tmp);
                     std::getline(file, tmp, valsep);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
                     cruisetype = std::stoi(tmp);
                     std::getline(file, tmp, valsep);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
                     time = std::stof(tmp);
                     std::getline(file, tmp, valsep);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
                     dist = std::stof(tmp);
                     std::getline(file, tmp, lineend);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
                     fuel = std::stof(tmp);
                     AddAccelDataPoint(rpm, climbtype, toc, cruisetype, time, dist, fuel);
                 }
