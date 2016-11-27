@@ -175,25 +175,35 @@ class TDescentDataSet{
             if(file){
             	//Achtung! while(!ile.eof()) ist unzuverlässig, u.u. wird die letzte zeile zweimal geladen und prog bleibt hängen
                 while(std::getline(file, tmp, valsep)){
-										rpm = std::stoi(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break; //Variable prüfen, wenn Leer oder "N/A" dann durchlauf abbrechen
+                    rpm = std::stoi(tmp);
                     std::getline(file, tmp, valsep);
-										descenttype = std::stoi(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    descenttype = std::stoi(tmp);
                     std::getline(file, tmp, valsep);
-										isadev = std::stoi(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    isadev = std::stoi(tmp);
                     std::getline(file, tmp, valsep);
-										mass = std::stoi(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    mass = std::stoi(tmp);
                     std::getline(file, tmp, valsep);
-										fl = std::stoi(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    fl = std::stoi(tmp);
                     std::getline(file, tmp, valsep);
-										kias = stoi(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    kias = stoi(tmp);
                     std::getline(file, tmp, valsep);
-										trq = stof(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    trq = stof(tmp);
                     std::getline(file, tmp, valsep);
-										time = stof(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    time = stof(tmp);
                     std::getline(file, tmp, valsep);
-										dist = stof(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    dist = stof(tmp);
                     std::getline(file, tmp, lineend);
-										fuel = stof(tmp);
+                    if ((tmp == "N/A") || (tmp == "n/a") || (tmp == "")) break;
+                    fuel = stof(tmp);
                     AddDescentDataPoint(rpm, descenttype, isadev, mass, fl, kias, trq, time, dist, fuel);
                 }
 
