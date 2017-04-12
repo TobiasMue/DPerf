@@ -21,6 +21,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    ui->setupUi(this);
+
+
 
     // try to load data for testing
     //std::cout << argv[0] << std::endl;
@@ -55,18 +58,23 @@ MainWindow::MainWindow(QWidget *parent) :
             DescentWind.WindData(iFL * 10, (45 + 2*iFL)%360, 0, 15 - iFL);
         }
     std::cout << "DescentWind Loaded..." << std::endl;
-/*
+
+
+
+
+
+
     // test ui for ploting example
-    ui->setupUi(this);
+    //ui->setupUi(this);
     setGeometry(400, 250, 542, 390);
     setupLineStyleDemo(ui->customPlot);
     setWindowTitle("QCustomPlot: "+demoName);
     statusBar()->clearMessage();
     ui->customPlot->replot();
-*/
+
 
     // test2 ui for ploting climbdata
-    ui->setupUi(this);
+    //ui->setupUi(this);
     setGeometry(400, 250, 542, 390);
     plotclimbdata(ui->cruisedataPlot);
     setWindowTitle("QCustomPlot: ""climbdata");

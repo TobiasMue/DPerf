@@ -14,58 +14,91 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QCustomPlot" name="customPlot" native="true">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>181</width>
-      <height>181</height>
+      <x>10</x>
+      <y>0</y>
+      <width>491</width>
+      <height>411</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QCustomPlot" name="climbdataPlot" native="true">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>20</y>
-      <width>181</width>
-      <height>181</height>
-     </rect>
+    <property name="currentIndex">
+     <number>0</number>
     </property>
-   </widget>
-   <widget class="QCustomPlot" name="cruisedataPlot" native="true">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>240</y>
-      <width>181</width>
-      <height>181</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QCustomPlot" name="descentdataPlot" native="true">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>220</y>
-      <width>181</width>
-      <height>181</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>120</y>
-      <width>62</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+     <widget class="QCustomPlot" name="customPlot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>20</y>
+        <width>401</width>
+        <height>331</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>0</y>
+        <width>62</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+     <widget class="QCustomPlot" name="climbdataPlot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>20</y>
+        <width>391</width>
+        <height>351</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Tab 3</string>
+     </attribute>
+     <widget class="QCustomPlot" name="cruisedataPlot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>30</y>
+        <width>411</width>
+        <height>321</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Tab 4</string>
+     </attribute>
+     <widget class="QCustomPlot" name="descentdataPlot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>421</width>
+        <height>321</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
