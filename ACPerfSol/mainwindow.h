@@ -18,9 +18,9 @@ public:
     ~MainWindow();
 
     void setupLineStyleDemo(QCustomPlot *customPlot);
-    void plotclimbdata(QCustomPlot *customPlot);
-    void plotcruisedata(QCustomPlot *customPlot);
-    void plotdescentdata(QCustomPlot *customPlot);
+    void plotclimbdata(QCustomPlot *climbdataPlot);
+    void plotcruisedata(QCustomPlot *cruisedataPlot);
+    void plotdescentdata(QCustomPlot *descentdataPlot);
 
 
 
