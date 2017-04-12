@@ -68,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->setupUi(this);
     setGeometry(400, 250, 542, 390);
     setupLineStyleDemo(ui->customPlot);
-    setWindowTitle("QCustomPlot: "+demoName);
+    //setWindowTitle("QCustomPlot: "+demoName);
     statusBar()->clearMessage();
     ui->customPlot->replot();
 
@@ -76,10 +76,10 @@ MainWindow::MainWindow(QWidget *parent) :
     // test2 ui for ploting climbdata
     //ui->setupUi(this);
     setGeometry(400, 250, 542, 390);
-    plotclimbdata(ui->cruisedataPlot);
-    setWindowTitle("QCustomPlot: ""climbdata");
+    plotclimbdata(ui->climbdataPlot);
+    //setWindowTitle("QCustomPlot: ""climbdata");
     statusBar()->clearMessage();
-    ui->cruisedataPlot->replot();
+    ui->climbdataPlot->replot();
 
 }
 
