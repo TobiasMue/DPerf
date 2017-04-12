@@ -1,0 +1,4 @@
+#ifndef PLOTFUNCTIONS_H
+#define PLOTFUNCTIONS_H
+
+#endif // PLOTFUNCTIONS_H
