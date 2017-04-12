@@ -38,13 +38,42 @@ MainWindow::MainWindow(QWidget *parent) :
     DescentData.LoadData(DESCENTDATAPATH, ';', '\n');
     std::cout << "Descent Loaded..." << std::endl;
 
+    TWindProfile ClimbWind;
+        for(unsigned iFL = 0; iFL < 26; iFL += 2){
+            ClimbWind.WindData(iFL * 10, (45 + 2*iFL)%360, 0 , 15 - iFL);
+        }
+    std::cout << "ClimbWind Loaded..." << std::endl;
 
+    TWindProfile CruiseWind;
+        for(unsigned iFL = 0; iFL < 25; iFL += 2){
+            CruiseWind.WindData(iFL * 10, (45 + 2*iFL)%360, 0, 15 - iFL);
+        }
+    std::cout << "CruiseWind Loaded..." << std::endl;
+
+    TWindProfile DescentWind;
+        for(unsigned iFL = 0; iFL < 25; iFL += 2){
+            DescentWind.WindData(iFL * 10, (45 + 2*iFL)%360, 0, 15 - iFL);
+        }
+    std::cout << "DescentWind Loaded..." << std::endl;
+
+    // test ui for ploting example
     ui->setupUi(this);
     setGeometry(400, 250, 542, 390);
     setupLineStyleDemo(ui->customPlot);
     setWindowTitle("QCustomPlot: "+demoName);
     statusBar()->clearMessage();
     ui->customPlot->replot();
+
+
+    // test2 ui for ploting climbdata
+/*
+    ui->setupUi(this);
+    setGeometry(400, 250, 542, 390);
+    plotclimbdata(ui->customPlot);
+    setWindowTitle("QCustomPlot: ""climbdata");
+    statusBar()->clearMessage();
+    ui->customPlot->replot();
+*/
 }
 
 MainWindow::~MainWindow()

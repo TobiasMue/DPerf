@@ -20,7 +20,8 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     Plot/qcustomplot.cpp \
-    Plot/plotexamples.cpp
+    Plot/plotexamples.cpp \
+    Plot/plotfunctions.cpp
 
 HEADERS  += mainwindow.h \
     Accel/Accel.h \
@@ -50,7 +51,8 @@ HEADERS  += mainwindow.h \
     Misc/RouteFunctions.h \
     Misc/Wind.h \
     localinit.h \
-    Plot/qcustomplot.h
+    Plot/qcustomplot.h \
+    Plot/plotfunctions.h
 
 FORMS    += mainwindow.ui
 
