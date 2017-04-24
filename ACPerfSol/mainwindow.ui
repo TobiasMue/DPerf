@@ -17,14 +17,14 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>40</y>
       <width>541</width>
       <height>441</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -84,7 +84,7 @@
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>30</x>
         <y>340</y>
         <width>391</width>
         <height>53</height>
@@ -130,31 +130,6 @@
         </layout>
        </item>
       </layout>
-     </widget>
-     <widget class="QComboBox" name="climb_comboBox_PrintOptions">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>300</y>
-        <width>451</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>FL vs. distance</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>FL vs. fuel</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>FL vs. time</string>
-       </property>
-      </item>
      </widget>
      <widget class="QWidget" name="">
       <property name="geometry">
@@ -412,6 +387,44 @@
           </widget>
          </item>
         </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>280</y>
+        <width>146</width>
+        <height>49</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>print options</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="climb_comboBox_PrintOptions">
+         <item>
+          <property name="text">
+           <string>FL vs. distance</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>FL vs. fuel</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>FL vs. time</string>
+          </property>
+         </item>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -690,7 +703,7 @@
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>320</y>
+        <y>330</y>
         <width>401</width>
         <height>53</height>
        </rect>
@@ -736,35 +749,48 @@
        </item>
       </layout>
      </widget>
-     <widget class="QComboBox" name="cruise_comboBox_PrintOptions">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>280</y>
-        <width>291</width>
-        <height>26</height>
+        <x>50</x>
+        <y>270</y>
+        <width>195</width>
+        <height>49</height>
        </rect>
       </property>
-      <item>
-       <property name="text">
-        <string>FL vs. KIAS</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>FL vs. KTAS</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>FL vs. KTIAS and KTAS</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>FL vs. fuel flow</string>
-       </property>
-      </item>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>print options</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cruise_comboBox_PrintOptions">
+         <item>
+          <property name="text">
+           <string>FL vs. KIAS</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>FL vs. KTAS</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>FL vs. KTIAS and KTAS</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>FL vs. fuel flow</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
@@ -1074,30 +1100,43 @@
        </item>
       </layout>
      </widget>
-     <widget class="QComboBox" name="descent_comboBox_PrintOptions">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>270</y>
-        <width>301</width>
-        <height>26</height>
+        <y>240</y>
+        <width>149</width>
+        <height>49</height>
        </rect>
       </property>
-      <item>
-       <property name="text">
-        <string>FL vs. distance</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>FL vs. fuel flow</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>FL vs time</string>
-       </property>
-      </item>
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>print options</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="descent_comboBox_PrintOptions">
+         <item>
+          <property name="text">
+           <string>FL vs. distance</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>FL vs. fuel flow</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>FL vs time</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_5">
