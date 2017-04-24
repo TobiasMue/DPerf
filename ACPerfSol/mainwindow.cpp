@@ -121,7 +121,7 @@ ClbRPM = (ui->climb_comboBox_RPM->currentText()).toDouble();
 Clbisadev = (ui->climb_lineEdit_ISA->text()).toDouble();
 Clbfl = (ui->climb_comboBox_FL->currentText()).toDouble();
 Clbmass = (ui->climb_lineEdit_Mass->text()).toDouble();
-ClbICE = (ui->climb_CheckBox_ICE->checkState()); //FIXME not passed to function
+ClbICE = (ui->climb_CheckBox_ICE->checkState());
 
 
 // load specific climb data
@@ -133,6 +133,15 @@ std::cout << "Climb Loaded..." << std::endl;
 double ClbTime = ClimbData.Time(ClbRPM, Clbtype, Clbisadev, Clbmass, Clbfl);
 double ClbAirDist = ClimbData.Dist(ClbRPM, Clbtype, Clbisadev, Clbmass, Clbfl);
 double ClbFuel = ClimbData.Fuel(ClbRPM, Clbtype, Clbisadev, Clbmass, Clbfl);
+if(ClbICE==2){ // 2 for ICE ON
+    //FIXME
+    //ClbTime += ClbTime * AICorFuel/100;
+    //ClbAirDist += ClbAirDist * AICorAirDist/100;
+    //ClbFuel += ClbFuel * AICorFuel/100;
+
+}
+
+
 
 // write specific datapoints
 ui->climb_lineEdit_Result_Time->setText(QString("%1").arg(ClbTime,0,'f',2));
