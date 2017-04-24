@@ -18,13 +18,13 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>0</y>
+      <y>40</y>
       <width>541</width>
       <height>441</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -423,25 +423,348 @@
      <widget class="QCustomPlot" name="cruisedataPlot" native="true">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>230</x>
         <y>30</y>
-        <width>411</width>
-        <height>321</height>
+        <width>281</width>
+        <height>241</height>
        </rect>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
+     <widget class="QWidget" name="layoutWidget_2">
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>0</y>
-        <width>62</width>
-        <height>16</height>
+        <y>40</y>
+        <width>171</width>
+        <height>177</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="Source_2">
+           <property name="text">
+            <string>Source</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Type_2">
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="ISA_2">
+           <property name="text">
+            <string>ISA dev.</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="FL_2">
+           <property name="text">
+            <string>FL</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Mass_2">
+           <property name="text">
+            <string>Mass (kg)</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QComboBox" name="cruise_comboBox_Source">
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>alt</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>neu</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="cruise_comboBox_Type">
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>LRC</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ISC</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>HSC</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MCR</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="cruise_lineEdit_ISA">
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="cruise_comboBox_FL">
+           <item>
+            <property name="text">
+             <string>40</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>50</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>60</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>70</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>80</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>90</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>100</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>110</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>120</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>130</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>140</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>150</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>160</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>170</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>180</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>190</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>200</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>210</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>220</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>230</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>240</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>250</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>260</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>270</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="cruise_lineEdit_Mass">
+           <property name="text">
+            <string>26000</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QCheckBox" name="cruise_CheckBox_ICE">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>240</y>
+        <width>93</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>cruise</string>
+       <string>anti ICE on</string>
       </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>320</y>
+        <width>401</width>
+        <height>53</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QLabel" name="Label_time_2">
+           <property name="text">
+            <string>KIAS</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Label_dist_2">
+           <property name="text">
+            <string>KTAS</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Label_fuel_2">
+           <property name="text">
+            <string>fuelflow (kg/h)</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QLineEdit" name="cruise_lineEdit_Result_KIAS"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="cruise_lineEdit_Result_KTAS"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="cruise_lineEdit_Result_FUELFLOW"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QComboBox" name="cruise_comboBox_PrintOptions">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>280</y>
+        <width>291</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>FL vs. KIAS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>FL vs. KTAS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>FL vs. KTIAS and KTAS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>FL vs. fuel flow</string>
+       </property>
+      </item>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
