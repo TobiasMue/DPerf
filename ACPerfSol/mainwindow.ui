@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>511</width>
-    <height>497</height>
+    <width>562</width>
+    <height>510</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,16 +19,16 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>491</width>
-      <height>411</height>
+      <width>541</width>
+      <height>441</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>example</string>
      </attribute>
      <widget class="QCustomPlot" name="customPlot" native="true">
       <property name="geometry">
@@ -56,35 +56,369 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>climb</string>
      </attribute>
      <widget class="QCustomPlot" name="climbdataPlot" native="true">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>210</x>
         <y>20</y>
-        <width>391</width>
-        <height>351</height>
+        <width>311</width>
+        <height>241</height>
        </rect>
       </property>
      </widget>
-     <widget class="QLabel" name="label_3">
+     <widget class="QCheckBox" name="climb_CheckBox_ICE">
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>0</y>
-        <width>62</width>
-        <height>16</height>
+        <y>250</y>
+        <width>93</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>climb</string>
+       <string>anti ICE on</string>
       </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>340</y>
+        <width>391</width>
+        <height>53</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="Label_time">
+           <property name="text">
+            <string>time (min)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Label_dist">
+           <property name="text">
+            <string>dist (NM)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Label_fuel">
+           <property name="text">
+            <string>fuel (kg)</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLineEdit" name="climb_lineEdit_Result_Time"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="climb_lineEdit_Result_Dist"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="climb_lineEdit_Result_Fuel"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QComboBox" name="climb_comboBox_PrintOptions">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>300</y>
+        <width>451</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>FL vs. distance</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>FL vs. fuel</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>FL vs. time</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>41</y>
+        <width>171</width>
+        <height>177</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="Source">
+           <property name="text">
+            <string>Source</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Type">
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="RPM">
+           <property name="text">
+            <string>RPM</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="ISA">
+           <property name="text">
+            <string>ISA dev.</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="FL">
+           <property name="text">
+            <string>FL</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Mass">
+           <property name="text">
+            <string>Mass (kg)</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QComboBox" name="climb_comboBox_Source">
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>alt</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>neu</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="climb_comboBox_Type">
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>1</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>2</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>3</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="climb_comboBox_RPM">
+           <item>
+            <property name="text">
+             <string>850</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>900</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="climb_lineEdit_ISA">
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="climb_comboBox_FL">
+           <item>
+            <property name="text">
+             <string>40</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>50</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>60</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>70</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>80</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>90</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>100</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>110</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>120</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>130</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>140</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>150</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>160</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>170</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>180</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>190</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>200</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>210</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>220</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>230</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>240</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>250</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>260</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>270</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="climb_lineEdit_Mass">
+           <property name="text">
+            <string>26000</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
-      <string>Tab 3</string>
+      <string>cruise</string>
      </attribute>
      <widget class="QCustomPlot" name="cruisedataPlot" native="true">
       <property name="geometry">
@@ -112,7 +446,7 @@
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
-      <string>Tab 4</string>
+      <string>descnt</string>
      </attribute>
      <widget class="QCustomPlot" name="descentdataPlot" native="true">
       <property name="geometry">
@@ -209,7 +543,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>511</width>
+     <width>562</width>
      <height>22</height>
     </rect>
    </property>
