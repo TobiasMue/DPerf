@@ -28,9 +28,9 @@ MainWindow::MainWindow(QWidget *parent) :
     // try to load data for testing
     //std::cout << argv[0] << std::endl;
 
-    TClimbDataSet ClimbData(1);
-    ClimbData.LoadData(CLIMBDATAPATH, ';', '\n');
-    std::cout << "Climb Loaded..." << std::endl;
+//    TClimbDataSet ClimbData(1);
+//    ClimbData.LoadData(CLIMBDATAPATH, ';', '\n');
+//    std::cout << "Climb Loaded..." << std::endl;
     TAccelDataSet AccelData(1);
     AccelData.LoadData(ACCELDATAPATH, ';', '\n');
     std::cout << "Accel Loaded..." << std::endl;
@@ -60,6 +60,27 @@ MainWindow::MainWindow(QWidget *parent) :
     std::cout << "DescentWind Loaded..." << std::endl;
 
 
+    //climb data
+    /*##################*/
+
+    // set start values (if different from index 0)
+    ui->climb_comboBox_Source->setCurrentIndex(1); // 1 for new
+    ui->climb_comboBox_FL->setCurrentIndex(21); //21 for FL 250
+
+    connect(ui->climb_comboBox_Source, SIGNAL(currentIndexChanged(int)), this, SLOT(fcalculate_climb()));
+    connect(ui->climb_comboBox_Type, SIGNAL(currentIndexChanged(int)), this, SLOT(fcalculate_climb()));
+    connect(ui->climb_comboBox_RPM, SIGNAL(currentIndexChanged(int)), this, SLOT(fcalculate_climb()));
+    connect(ui->climb_lineEdit_ISA, SIGNAL(textChanged(QString)), this, SLOT(fcalculate_climb()));
+    connect(ui->climb_comboBox_FL, SIGNAL(currentIndexChanged(int)), this, SLOT(fcalculate_climb()));
+    connect(ui->climb_lineEdit_Mass, SIGNAL(textChanged(QString)), this, SLOT(fcalculate_climb()));
+    connect(ui->climb_CheckBox_ICE, SIGNAL(stateChanged(int)), this, SLOT(fcalculate_climb()));
+
+
+
+    fcalculate_climb();
+
+
+
 
 
 
@@ -86,4 +107,36 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+
+void MainWindow::fcalculate_climb(){
+    //get specific request values from lineEdit and comboBox
+    double Clbsource, Clbtype, ClbRPM, Clbisadev, Clbfl, Clbmass, ClbICE;
+
+Clbsource = (ui->climb_comboBox_Source->currentIndex()); //FIXME index to combobox?
+Clbtype = (ui->climb_comboBox_Type->currentText()).toDouble();
+ClbRPM = (ui->climb_comboBox_RPM->currentText()).toDouble();
+Clbisadev = (ui->climb_lineEdit_ISA->text()).toDouble();
+Clbfl = (ui->climb_comboBox_FL->currentText()).toDouble();
+Clbmass = (ui->climb_lineEdit_Mass->text()).toDouble();
+ClbICE = (ui->climb_CheckBox_ICE->checkState()); //FIXME not passed to function
+
+
+// load specific climb data
+TClimbDataSet ClimbData(Clbsource);
+ClimbData.LoadData(CLIMBDATAPATH, ';', '\n');
+std::cout << "Climb Loaded..." << std::endl;
+
+// get specific datapoints
+double ClbTime = ClimbData.Time(ClbRPM, Clbtype, Clbisadev, Clbmass, Clbfl);
+double ClbAirDist = ClimbData.Dist(ClbRPM, Clbtype, Clbisadev, Clbmass, Clbfl);
+double ClbFuel = ClimbData.Fuel(ClbRPM, Clbtype, Clbisadev, Clbmass, Clbfl);
+
+// write specific datapoints
+ui->climb_lineEdit_Result_Time->setText(QString("%1").arg(ClbTime,0,'f',2));
+ui->climb_lineEdit_Result_Dist->setText(QString("%1").arg(ClbAirDist,0,'f',2));
+ui->climb_lineEdit_Result_Fuel->setText(QString("%1").arg(ClbFuel,0,'f',2));
+
 }

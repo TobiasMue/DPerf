@@ -5,6 +5,7 @@
 #include "Plot/qcustomplot.h"
 
 
+
 namespace Ui {
 class MainWindow;
 }
@@ -23,6 +24,8 @@ public:
     void plotdescentdata(QCustomPlot *descentdataPlot);
 
 
+private slots:
+    void fcalculate_climb();
 
 private:
     Ui::MainWindow *ui;

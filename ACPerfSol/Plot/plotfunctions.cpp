@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 //plot
 #include "Plot/qcustomplot.h"
 
@@ -13,6 +14,7 @@
 
 void MainWindow::plotclimbdata(QCustomPlot *climbdataPlot)
 {
+    // graph
     climbdataPlot->legend->setVisible(true);
     climbdataPlot->legend->setFont(QFont("Helvetica", 9));
     QPen pen;

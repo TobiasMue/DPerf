@@ -131,7 +131,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>12</x>
@@ -144,42 +144,42 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QLabel" name="Source">
+          <widget class="QLabel" name="climb_Label_Source">
            <property name="text">
             <string>Source</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="Type">
+          <widget class="QLabel" name="climb_Label_Type">
            <property name="text">
             <string>Type</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="RPM">
+          <widget class="QLabel" name="climb_Label_RPM">
            <property name="text">
             <string>RPM</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="ISA">
+          <widget class="QLabel" name="climb_Label_ISA_dev">
            <property name="text">
             <string>ISA dev.</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="FL">
+          <widget class="QLabel" name="climb_Label_FL">
            <property name="text">
             <string>FL</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="Mass">
+          <widget class="QLabel" name="climb_Label_Mass">
            <property name="text">
             <string>Mass (kg)</string>
            </property>
@@ -390,7 +390,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -749,7 +749,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>50</x>
@@ -1100,7 +1100,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>60</x>
