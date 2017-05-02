@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -743,7 +743,7 @@
           <widget class="QLineEdit" name="cruise_lineEdit_Result_KTAS"/>
          </item>
          <item>
-          <widget class="QLineEdit" name="cruise_lineEdit_Result_FUELFLOW"/>
+          <widget class="QLineEdit" name="cruise_lineEdit_Result_FuelFlow"/>
          </item>
         </layout>
        </item>
@@ -795,7 +795,7 @@
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
-      <string>descnt</string>
+      <string>descent</string>
      </attribute>
      <widget class="QCustomPlot" name="descentdataPlot" native="true">
       <property name="geometry">
@@ -823,6 +823,13 @@
           <widget class="QLabel" name="Source_3">
            <property name="text">
             <string>Source</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="descent_Label_RPM">
+           <property name="text">
+            <string>RPM</string>
            </property>
           </widget>
          </item>
@@ -874,6 +881,20 @@
            <item>
             <property name="text">
              <string>neu</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="descent_comboBox_RPM">
+           <item>
+            <property name="text">
+             <string>850</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>900</string>
             </property>
            </item>
           </widget>
@@ -1094,7 +1115,7 @@
           <widget class="QLineEdit" name="descent_lineEdit_Result_Dist"/>
          </item>
          <item>
-          <widget class="QLineEdit" name="descent_lineEditResult_Fuel"/>
+          <widget class="QLineEdit" name="descent_lineEdit_Result_FuelFlow"/>
          </item>
         </layout>
        </item>

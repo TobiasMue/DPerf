@@ -26,6 +26,8 @@ public:
 
 private slots:
     void fcalculate_climb();
+    void fcalculate_cruise();
+    void fcalculate_descent();
 
 private:
     Ui::MainWindow *ui;
