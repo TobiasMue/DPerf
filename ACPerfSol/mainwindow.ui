@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -732,6 +732,13 @@
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QLabel" name="Label_TRQ_2">
+           <property name="text">
+            <string>TRQ (%)</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item>
@@ -744,6 +751,9 @@
          </item>
          <item>
           <widget class="QLineEdit" name="cruise_lineEdit_Result_FuelFlow"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="cruise_lineEdit_Result_TRQ"/>
          </item>
         </layout>
        </item>

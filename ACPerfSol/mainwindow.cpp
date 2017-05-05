@@ -189,7 +189,7 @@ void MainWindow::fcalculate_cruise(){
     ui->cruise_lineEdit_Result_FuelFlow->setText(QString("%1").arg(CrsFF,0,'f',2));
     ui->cruise_lineEdit_Result_KIAS->setText(QString("%1").arg(CrsKIAS,0,'f',2));
     ui->cruise_lineEdit_Result_KTAS->setText(QString("%1").arg(CrsKTAS,0,'f',2));
-    //ui->cruise_lineEdit_Result_TRQ->setText(QString("%1").arg(CrsTRQ,0,'f',2));
+    ui->cruise_lineEdit_Result_TRQ->setText(QString("%1").arg(CrsTRQ,0,'f',2));
     //ploting climbdata
 
     //ui->setupUi(this);
