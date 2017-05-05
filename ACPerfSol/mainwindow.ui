@@ -909,22 +909,27 @@
            </property>
            <item>
             <property name="text">
-             <string>LRC</string>
+             <string>I</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>ISC</string>
+             <string>II</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>HSC</string>
+             <string>III</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>MCR</string>
+             <string>IV</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>V</string>
             </property>
            </item>
           </widget>
