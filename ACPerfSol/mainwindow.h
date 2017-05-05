@@ -26,6 +26,7 @@ public:
 
 private slots:
     void fcalculate_climb();
+    void fcalculate_accel();
     void fcalculate_cruise();
     void fcalculate_descent();
 

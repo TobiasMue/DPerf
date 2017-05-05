@@ -24,19 +24,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
 
-
-    // try to load data for testing
-    //std::cout << argv[0] << std::endl;
-
-//    TClimbDataSet ClimbData(1);
-//    ClimbData.LoadData(CLIMBDATAPATH, ';', '\n');
-//    std::cout << "Climb Loaded..." << std::endl;
-    TAccelDataSet AccelData(1);
-    AccelData.LoadData(ACCELDATAPATH, ';', '\n');
-    std::cout << "Accel Loaded..." << std::endl;
-
-
-
     TWindProfile ClimbWind;
         for(unsigned iFL = 0; iFL < 26; iFL += 2){
             ClimbWind.WindData(iFL * 10, (45 + 2*iFL)%360, 0 , 15 - iFL);
@@ -70,6 +57,16 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->climb_CheckBox_ICE, SIGNAL(stateChanged(int)), this, SLOT(fcalculate_climb()));
     // call function for the first time to fill results
     fcalculate_climb();
+
+
+    /*##################*/
+    //accel data
+    // set start values (if different from index 0)
+
+    // connect signal and slots
+
+    // call function for the first time to fill results
+    fcalculate_accel();
 
     /*##################*/
     //cruise data
@@ -112,15 +109,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //setWindowTitle("QCustomPlot: "+demoName);
     statusBar()->clearMessage();
     ui->customPlot->replot();
-
-
-    // test2 ui for ploting climbdata
-    //ui->setupUi(this);
-    setGeometry(400, 250, 542, 390);
-    plotclimbdata(ui->climbdataPlot);
-    //setWindowTitle("QCustomPlot: ""climbdata");
-    statusBar()->clearMessage();
-    ui->climbdataPlot->replot();
 //#####################################################
 
 
@@ -163,6 +151,18 @@ void MainWindow::fcalculate_climb(){
     ui->climb_lineEdit_Result_Fuel->setText(QString("%1").arg(ClbFuel,0,'f',2));
 }
 
+void MainWindow::fcalculate_accel(){
+    //get specific request values from lineEdit and comboBox
+
+    // load specific accel data
+    TAccelDataSet AccelData(1);
+    AccelData.LoadData(ACCELDATAPATH, ';', '\n');
+    std::cout << "Accel Loaded..." << std::endl;
+    // get specific datapoint
+
+
+
+}
 void MainWindow::fcalculate_cruise(){
     //get specific request values from lineEdit and comboBox
     double Crssource, Crstype, Crsisadev, Crsfl, Crsmass, CrsICE;
@@ -191,7 +191,14 @@ void MainWindow::fcalculate_cruise(){
     ui->cruise_lineEdit_Result_FuelFlow->setText(QString("%1").arg(CrsFF,0,'f',2));
     ui->cruise_lineEdit_Result_KIAS->setText(QString("%1").arg(CrsKIAS,0,'f',2));
     ui->cruise_lineEdit_Result_KTAS->setText(QString("%1").arg(CrsKTAS,0,'f',2));
+    //ploting climbdata
 
+    //ui->setupUi(this);
+    setGeometry(400, 250, 542, 390);
+    plotclimbdata(ui->climbdataPlot);
+    //setWindowTitle("QCustomPlot: ""climbdata");
+    statusBar()->clearMessage();
+    ui->climbdataPlot->replot();
 }
 
 void MainWindow::fcalculate_descent(){
