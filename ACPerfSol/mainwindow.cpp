@@ -58,7 +58,6 @@ MainWindow::MainWindow(QWidget *parent) :
     // call function for the first time to fill results
     fcalculate_climb();
 
-
     /*##################*/
     //accel data
     // set start values (if different from index 0)
@@ -181,16 +180,16 @@ void MainWindow::fcalculate_cruise(){
     double CrsFF = CruiseData.FF(Crstype, Crsisadev, Crsmass, Crsfl);
     double CrsKIAS = CruiseData.KIAS(Crstype, Crsisadev, Crsmass, Crsfl);
     double CrsKTAS = CruiseData.KTAS(Crstype, Crsisadev, Crsmass, Crsfl);
+    double CrsTRQ = CruiseData.TRQ(Crstype, Crsisadev, Crsmass, Crsfl);
     if(CrsICE==2){ // 2 for ICE ON
-        //FIXME
-        //ClbTime += ClbTime * AICorFuel/100;
-        //ClbAirDist += ClbAirDist * AICorAirDist/100;
-        //ClbFuel += ClbFuel * AICorFuel/100;
+            CrsFF += CrsFF * CruiseData.AICorFF(Crstype, Crsisadev)/100;
+            CrsTRQ += CrsTRQ * CruiseData.AICorTRQ(Crstype, Crsisadev)/100;
         }
     // write specific datapoint
     ui->cruise_lineEdit_Result_FuelFlow->setText(QString("%1").arg(CrsFF,0,'f',2));
     ui->cruise_lineEdit_Result_KIAS->setText(QString("%1").arg(CrsKIAS,0,'f',2));
     ui->cruise_lineEdit_Result_KTAS->setText(QString("%1").arg(CrsKTAS,0,'f',2));
+    //ui->cruise_lineEdit_Result_TRQ->setText(QString("%1").arg(CrsTRQ,0,'f',2));
     //ploting climbdata
 
     //ui->setupUi(this);
