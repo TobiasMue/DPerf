@@ -166,7 +166,7 @@ void MainWindow::fcalculate_climb(){
 void MainWindow::fcalculate_cruise(){
     //get specific request values from lineEdit and comboBox
     double Crssource, Crstype, Crsisadev, Crsfl, Crsmass, CrsICE;
-    Crstype = (ui->cruise_comboBox_Type->currentText()).toDouble();
+    Crstype = (ui->cruise_comboBox_Type->currentIndex())+1;
     Crsisadev = (ui->cruise_lineEdit_ISA->text()).toDouble();
     Crsfl = (ui->cruise_comboBox_FL->currentText()).toDouble();
     Crsmass = (ui->cruise_lineEdit_Mass->text()).toDouble();
@@ -174,7 +174,7 @@ void MainWindow::fcalculate_cruise(){
     //get specific request values from comboBox
     Crssource = (ui->cruise_comboBox_Source->currentIndex());
     // load specific cruise data
-    TCruiseDataSet CruiseData(1);
+    TCruiseDataSet CruiseData(Crssource);
     CruiseData.LoadData(CRUISEDATAPATH, ';', '\n');
     std::cout << "Cruise Loaded..." << std::endl;
     // get specific datapoint
@@ -197,7 +197,7 @@ void MainWindow::fcalculate_cruise(){
 void MainWindow::fcalculate_descent(){
     //get specific request values from lineEdit and comboBox
     double Descsource, DescRPM, Desctype, Descisadev, Descfl, Descmass;
-    Desctype = (ui->descent_comboBox_Type->currentText()).toDouble();
+    Desctype = (ui->descent_comboBox_Type->currentIndex())+1;
     DescRPM = (ui->descent_comboBox_RPM->currentText()).toDouble();
     Descisadev = (ui->descent_lineEdit_ISA->text()).toDouble();
     Descfl = (ui->descent_comboBox_FL->currentText()).toDouble();
@@ -205,7 +205,7 @@ void MainWindow::fcalculate_descent(){
     //get specific request values from comboBox
     Descsource = (ui->climb_comboBox_Source->currentIndex());
     // load specific descent data
-    TDescentDataSet DescentData(1);
+    TDescentDataSet DescentData(Descsource);
     DescentData.LoadData(DESCENTDATAPATH, ';', '\n');
     std::cout << "Descent Loaded..." << std::endl;
     // get specific datapoint
